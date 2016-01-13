@@ -45,27 +45,40 @@ exports.arraysAnswers = {
   },
 
   removeWithoutCopy : function(arr, item) {
+    var i;
+    console.log(arr, item);
+    while((i = arr.indexOf(item)) >-1){
+      arr.splice(i,1);
+      i = arr.indexOf(item);
+    }
 
+    return arr;
   },
 
   append : function(arr, item) {
-
+    // arr.splice(arr.length,0,item);
+    arr.push(item);
+    return arr;
   },
 
   truncate : function(arr) {
-
+    // arr.splice(arr.length-1,1);
+    arr.pop();
+    return arr;
   },
 
   prepend : function(arr, item) {
-
+    arr.unshift(item);
+    return arr;
   },
 
   curtail : function(arr) {
-
+    arr.shift();
+    return arr;
   },
 
   concat : function(arr1, arr2) {
-
+    return arr1.concat(arr2);
   },
 
   insert : function(arr, item, index) {
