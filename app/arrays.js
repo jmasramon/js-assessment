@@ -1,3 +1,5 @@
+/* jshint esnext: true */
+
 exports = (typeof window === 'undefined') ? global : window;
 
 exports.arraysAnswers = {
@@ -46,7 +48,6 @@ exports.arraysAnswers = {
 
   removeWithoutCopy : function(arr, item) {
     var i;
-    console.log(arr, item);
     while((i = arr.indexOf(item)) >-1){
       arr.splice(i,1);
       i = arr.indexOf(item);
@@ -82,22 +83,52 @@ exports.arraysAnswers = {
   },
 
   insert : function(arr, item, index) {
-
+    arr.splice(index,0,item);
+    return arr;
   },
 
   count : function(arr, item) {
-
+    return arr.reduce(function (prev, cur) {
+      if (cur === item) prev++;
+      return prev;
+    },0);
   },
 
   duplicates : function(arr) {
+    var previous = arr[0];
+    // var res = [];
+    // while((previous = arr.sort().shift())){
+    //   console.log(previous, arr);
+    //   if (arr[0] === previous && previous !== res.slice(-1)[0]){
+    //     res.push(previous);
+    //   }
+    // }
+    // return res;
+
+    return this.curtail(arr.sort()).reduce(function (prev, cur) {
+      if (cur === previous && cur !== prev.slice(-1)[0] ){
+        prev.push(cur);
+      }
+      previous = cur;
+      return prev;
+    },[]);
 
   },
 
   square : function(arr) {
-
+    return arr.map(elem => elem*elem);
   },
 
   findAllOccurrences : function(arr, target) {
-
+    // todo: simplify this one
+    var index,
+        res = [],
+        dropedLength = 0;
+    while((index = arr.indexOf(target)) > -1){
+      res.push(index + dropedLength);
+      dropedLength = index + 1;
+      arr = arr.slice(dropedLength);
+    }
+    return res;
   }
 };
