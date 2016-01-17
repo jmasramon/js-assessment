@@ -3,7 +3,7 @@ if ( typeof window === 'undefined' ) {
   var expect = require('chai').expect;
 }
 
-describe('flow control', function() {
+xdescribe('flow control', function() {
   it('you should be able to conditionally branch your code', function() {
     var num = 0;
 

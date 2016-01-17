@@ -3,7 +3,7 @@ if ( typeof window === 'undefined' ) {
   var expect = require('chai').expect;
 }
 
-describe('async behavior', function() {
+xdescribe('async behavior', function() {
   it('you should understand how to use promises to handle asynchronicity', function(done) {
     var flag = false;
     var finished = 0;

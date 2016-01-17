@@ -3,7 +3,7 @@ if ( typeof window === 'undefined' ) {
   var expect = require('chai').expect;
 }
 
-describe('best practices', function(){
+xdescribe('best practices', function(){
   it('you should avoid global variables', function() {
     bestPracticesAnswers.globals();
     expect(window.myObject).not.to.be.ok;

@@ -3,7 +3,7 @@ if ( typeof window === 'undefined' ) {
   var expect = require('chai').expect;
 }
 
-describe('the module pattern', function() {
+xdescribe('the module pattern', function() {
   it('you should be able to create a function that returns a module', function() {
     var module = modulesAnswers.createModule('hello', 'matt');
 

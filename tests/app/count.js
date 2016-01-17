@@ -11,7 +11,7 @@ if ( typeof window === 'undefined' ) {
   * return an object with a cancel method, which should cancel the counting.
 */
 
-describe('counter', function () {
+xdescribe('counter', function () {
   var nums;
   var origConsoleLog;
 

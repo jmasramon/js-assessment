@@ -3,7 +3,7 @@ if ( typeof window === 'undefined' ) {
   var expect = require('chai').expect;
 }
 
-describe('numbers', function() {
+xdescribe('numbers', function() {
   describe('binary operations', function() {
     it('you should be able to find the value of a given bit', function() {
       expect(numbersAnswers.valueAtBit(128, 8)).to.eql(1);

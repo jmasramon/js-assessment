@@ -4,7 +4,7 @@ if ( typeof window === 'undefined' ) {
   var _ = require('underscore');
 }
 
-describe('recursion', function() {
+xdescribe('recursion', function() {
   var fileData = {
     dir : 'app',
     files : [
@@ -50,7 +50,7 @@ describe('recursion', function() {
   });
 });
 
-describe('permutation', function() {
+xdescribe('permutation', function() {
   var arr = [ 1, 2, 3, 4 ];
   var answer = [
     [1, 2, 3, 4],
