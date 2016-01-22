@@ -1,39 +1,73 @@
 exports = (typeof window === 'undefined') ? global : window;
 
 exports.functionsAnswers = {
-  argsAsArray : function(fn, arr) {
+    argsAsArray: function(fn, arr) {
+        return fn.apply(null, arr);
+    },
 
-  },
+    speak: function(fn, obj) {
+        return fn.call(obj);
+    },
 
-  speak : function(fn, obj) {
+    functionFunction: function(str) {
+        return function(str2) {
+            return str + ', ' + str2;
+        };
+    },
 
-  },
+    makeClosures: function(arr, fn) {
+        var resFuncts = [];
+        for (var i = 0; i < arr.length; i++) {
+            (function(num) {
+                resFuncts.push(function() {
+                    return fn(num);
+                });
+            })(arr[i]);
 
-  functionFunction : function(str) {
+        }
+        return resFuncts;
+    },
 
-  },
+    partial: function(fn, str1, str2) {
+        return function(sufix) {
+            return fn(str1, str2, sufix);
+        };
+    },
 
-  makeClosures : function(arr, fn) {
+    useArguments: function() {
+        var res = 0;
+        var operands = [].slice.apply(arguments);
+        console.log('useArguments operands:', operands);
+        for (var i = operands.length - 1; i >= 0; i--) {
+            res += operands[i];
+        }
+        return res;
+    },
 
-  },
+    callIt: function(fn) {
+        var operands = [].slice.apply(arguments).splice(1);
+        console.log(' callItoperands:', operands);
+        return fn.apply(null, operands);
+    },
 
-  partial : function(fn, str1, str2) {
+    partialUsingArguments: function(fn) {
+        var operands = [].slice.apply(arguments).splice(1);
+        return function() {
+            operands = operands.concat([].slice.apply(arguments));
+            return fn.apply(null, operands);
+        };
+    },
 
-  },
-
-  useArguments : function() {
-
-  },
-
-  callIt : function(fn) {
-
-  },
-
-  partialUsingArguments : function(fn) {
-
-  },
-
-  curryIt : function(fn) {
-
-  }
+    curryIt: function(fn) {
+        var operands = [].slice.apply(arguments).splice(1);
+        var numParams = fn.length;
+        return function partial(par) {
+            operands = operands.concat([].slice.apply(arguments));
+            if (operands.length === numParams) {
+                return fn.apply(null, operands);
+            } else {
+                return partial;
+            }
+        };
+    }
 };
