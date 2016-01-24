@@ -4,7 +4,7 @@ if ( typeof window === 'undefined' ) {
   var _ = require('underscore');
 }
 
-xdescribe('recursion', function() {
+describe('recursion', function() {
   var fileData = {
     dir : 'app',
     files : [
@@ -47,10 +47,14 @@ xdescribe('recursion', function() {
     expect(result.length).to.eql(5);
     expect(result.indexOf('main.js') > -1).to.be.ok;
     expect(result.indexOf('underscore.js') > -1).to.be.ok;
+
+    result = recursionAnswers.listFiles(fileData, 'css');
+    expect(result.length).to.eql(2);
+    expect(result.indexOf('reset.css' > -1)).to.be.ok;
   });
 });
 
-xdescribe('permutation', function() {
+describe('permutation', function() {
   var arr = [ 1, 2, 3, 4 ];
   var answer = [
     [1, 2, 3, 4],

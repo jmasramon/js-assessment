@@ -12,7 +12,6 @@ exports.objectsAnswers =  {
   iterate : function(obj) {
   	var res = [];
   	for (var i in obj) {
-  		console.log(i, obj[i]);
   		if (obj.hasOwnProperty(i)) {
   			res.push(i + ': ' + obj[i]);
   		}

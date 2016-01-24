@@ -37,7 +37,6 @@ exports.functionsAnswers = {
     useArguments: function() {
         var res = 0;
         var operands = [].slice.apply(arguments);
-        console.log('useArguments operands:', operands);
         for (var i = operands.length - 1; i >= 0; i--) {
             res += operands[i];
         }
@@ -46,7 +45,6 @@ exports.functionsAnswers = {
 
     callIt: function(fn) {
         var operands = [].slice.apply(arguments).splice(1);
-        console.log(' callItoperands:', operands);
         return fn.apply(null, operands);
     },
 

@@ -29,16 +29,13 @@ exports.countAnswers = {
     // }
 
     count: function(start, end) {
-        console.info('entering count');
         var timeout;
 
         function doIt() {
-            console.info('myCallback.counter:', start);
             console.log(start++);
 
             if (start <= end) {
                 timeout = setTimeout(doIt, 100);
-                console.info('timeout', timeout);
             }
         }
 
